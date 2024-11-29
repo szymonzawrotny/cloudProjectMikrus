@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.userpanel {
+    min-height: 100svh;
+    background-color: lightgreen;
+    display: flex;
+
+    nav {
+        flex-basis: 10svw;
+        min-width: 100px;
+        background-color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            margin: 25px;
+            text-decoration: none;
+            color: #222;
+            width: 80%;
+
+            .logo {
+                display: flex;
+                justify-content: center;
+                margin: 25px 0 45px 0;
+
+                svg {
+                    color: #222;
+                }
+            }
+
+            .option {
+                background-color: aliceblue;
+                border-bottom: 2px solid #222;
+                width: 100%;
+                height: 10svh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                text-transform: capitalize;
+
+                svg {
+                    color: #222;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .logout {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            bottom: 50px;
+            cursor: pointer;
+        }
+    }
+
+    main {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .movieList,
+        .rentalsList,
+        .rentMovie {
+            background-color: rgba(240, 248, 255, 0.521);
+            box-shadow: 5px 5px #222;
+            width: 80%;
+            height: 80svh;
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                text-transform: capitalize;
+                text-align: center;
+            }
+
+            .search {
+                flex-basis: 10svh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 15px;
+
+                input {
+                    height: 80%;
+                    width: 90%;
+                    padding: 25px;
+                    font-size: 24px;
+                    border: none;
+                    border-bottom: 5px solid #222;
+                }
+
+                input:focus {
+                    outline: none;
+                }
+            }
+
+            .list {
+                flex-grow: 1;
+                overflow-y: scroll;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 15px;
+                    ;
+
+                    li {
+                        width: 90%;
+                        list-style-type: none;
+                        border-bottom: 2px solid #222;
+                        padding: 5px;
+                        margin: 25px 0 25px 0;
+                        cursor: default;
+                        display: flex;
+                        justify-content: space-between;
+                        .show {
+                            font-size: 28px;
+                            cursor: pointer;
+                        }
+                    }
+                    li.movie{
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
+                        transition: .3s ease-in-out;
+                        header{
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                        section{
+                            height:0;
+                            transition: .3s ease-in-out;
+                        }
+                        section.active{
+                            height:100px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .rentalsList {
+            .list {
+                overflow: auto;
+            }
+        }
+
+        .adminPanel {
+            width: 80%;
+            height: 90svh;
+            display: flex;
+            justify-content: space-between;
+            .manageMovie{
+                width:45%;
+                background-color: rgba(240, 248, 255, 0.521);
+                box-shadow: 5px 5px #222;
+                display: flex;
+                flex-direction: column;
+                .add{
+                    padding:5px;
+                    flex-basis:20%;
+                    h2{
+                        text-align: center;
+                    }
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        input{
+                            margin:5px;
+                            width:60%;
+                        }
+                    }
+                }
+                .update{
+                    padding:5px;
+                    flex-basis:20%;
+                    h2{
+                        text-align: center;
+                    }
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        input{
+                            margin:5px;
+                            width:60%;
+                        }
+                    }
+                }
+                .delete{
+                    padding:5px;
+                    flex-basis:20%;
+                    h2{
+                        text-align: center;
+                    }
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        input{
+                            margin:5px;
+                            width:60%;
+                        }
+                    }
+                }
+                .userList{
+                    flex-basis:40%;
+                    overflow-y: scroll;
+                    padding:50px;
+                    padding-top:0;
+                    padding-bottom:0;
+                    ul{
+                        li{
+                            margin:15px 0 15px 0;
+                            cursor: pointer;
+                            background-color: aliceblue;
+                            padding:5px;
+                            list-style-type: none;
+                        }
+                    }
+                }
+            }
+            .manageUser{
+                width:45%;
+                background-color: rgba(240, 248, 255, 0.521);
+                box-shadow: 5px 5px #222;
+                display: flex;
+                flex-direction: column;
+                .add{
+                    padding:5px;
+                    flex-basis:20%;
+                    h2{
+                        text-align: center;
+                    }
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        input{
+                            margin:5px;
+                            width:60%;
+                        }
+                    }
+                }
+                .update{
+                    padding:5px;
+                    flex-basis:20%;
+                    h2{
+                        text-align: center;
+                    }
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        input{
+                            margin:5px;
+                            width:60%;
+                        }
+                    }
+                }
+                .delete{
+                    padding:5px;
+                    flex-basis:20%;
+                    h2{
+                        text-align: center;
+                    }
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        input{
+                            margin:5px;
+                            width:60%;
+                        }
+                    }
+                }
+                .userList{
+                    flex-basis:40%;
+                    overflow-y: scroll;
+                    padding:50px;
+                    padding-top:0;
+                    padding-bottom:0;
+                    ul{
+                        li{
+                            margin:15px 0 15px 0;
+                            cursor: pointer;
+                            background-color: aliceblue;
+                            padding:5px;
+                            list-style-type: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

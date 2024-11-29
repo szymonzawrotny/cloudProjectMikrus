@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    image: grzybb23/libraryapp-api:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - ./server/.env
+    networks:
+      - app-network
+
+  frontend:
+    image: grzybb23/libraryapp-frontend:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - ./client/.env
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

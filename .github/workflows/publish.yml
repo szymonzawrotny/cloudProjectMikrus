@@ -31,7 +31,7 @@ jobs:
     - name: Deploy backend to Mikrus
       uses: appleboy/ssh-action@v1.2.0
       with:
-        host: "[2a01:4f9:6a:1cc8::234]"
+        host: srv28.mikr.us
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
@@ -65,7 +65,7 @@ jobs:
     - name: Deploy frontend to Mikrus
       uses: appleboy/ssh-action@v1.2.0
       with:
-        host: "[2a01:4f9:6a:1cc8::234]"
+        host: srv28.mikr.us
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |

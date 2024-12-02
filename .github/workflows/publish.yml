@@ -33,6 +33,7 @@ jobs:
       with:
         host: "srv28.mikr.us"
         username: root
+        port: 10234
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           docker pull grzybb23/cloudproject-back:latest
@@ -66,6 +67,7 @@ jobs:
       uses: appleboy/ssh-action@v1.2.0
       with:
         host: "srv28.mikr.us"
+        port: 10234
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |

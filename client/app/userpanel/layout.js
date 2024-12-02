@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
     })
 
     const logout = ()=>{
-        signOut({ callbackUrl: "szymonzawrotny.pl" })
+        signOut({ callbackUrl: "/" })
     }
 
     return (

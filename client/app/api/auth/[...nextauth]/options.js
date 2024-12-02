@@ -1,6 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoClient } from "mongodb";
 import "dotenv/config";
+import { signOut } from "next-auth/react";
 
 export const options = {
     secret: "c4BgFzVYm3A8+JH3MQD4ok8PLbty7oFDvRzs+NpBoNca",
@@ -56,5 +57,6 @@ export const options = {
     ],
     pages: {
         signIn: "/",  // Możesz dostosować stronę logowania
+        signOut: "/userpanel"
     }
 };

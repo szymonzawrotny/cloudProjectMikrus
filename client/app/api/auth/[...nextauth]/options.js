@@ -56,6 +56,5 @@ export const options = {
     ],
     pages: {
         signIn: "/",
-        signOut: "https://szymonzawrotny.pl/api/auth/signout",
     }
 };

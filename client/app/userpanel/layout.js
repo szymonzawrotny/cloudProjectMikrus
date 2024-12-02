@@ -16,14 +16,14 @@ export default function RootLayout({ children }) {
     const router = useRouter();
 
     const { data: session } = useSession({
-        required: false,
+        required: true,
         onUnauthenticated() {
             router.push("/")
         }
     })
 
     const logout = ()=>{
-        signOut({ callbackUrl: "/" })
+        signOut({ callbackUrl: "https://szymonzawrotny.pl/" })
     }
 
     return (

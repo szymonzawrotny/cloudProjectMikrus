@@ -37,9 +37,10 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           docker pull grzybb23/cloudproject-back:latest
-          docker stop libraryapp-backend || true
-          docker rm cloudproject-back || true
+          docker ps -q -f name=cloudproject-back && docker stop cloudproject-back || true
+          docker rm -f cloudproject-back || true
           docker run -d --name cloudproject-back -p 5000:5000 grzybb23/cloudproject-back:latest
+
 
   build-and-deploy-frontend:
     name: Build and Deploy Frontend

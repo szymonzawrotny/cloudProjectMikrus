@@ -57,5 +57,6 @@ export const options = {
     ],
     pages: {
         signIn: "/",
+        signOut: "/",
     }
 };

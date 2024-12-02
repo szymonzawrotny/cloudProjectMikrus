@@ -3,7 +3,7 @@ import { MongoClient } from "mongodb";
 import "dotenv/config";
 
 export const options = {
-    secret: "c4BgFzVYm3A8+JH3MQD4ok8PLbty7oFDvRzs+NpBoNca",
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
         CredentialsProvider({
             name: "Credentials",
@@ -18,7 +18,7 @@ export const options = {
                 }
             },
             async authorize(credentials) {
-                const client = new MongoClient("mongodb://d234:Ezs8Kpu6GR@mongodb.mikr.dev:27017/db_d234");
+                const client = new MongoClient(process.env.LINK);
 
                 try {
                     await client.connect();
@@ -56,5 +56,6 @@ export const options = {
     ],
     pages: {
         signIn: "/",
+        signOut: "/",
     }
 };

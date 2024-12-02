@@ -21,7 +21,7 @@ let rents = db.collection("rents");
 let users = db.collection("users")
 
 app.get("/",(req,res)=>{
-    res.send("dzień dobry nowa wersja");
+    res.send("dzień dobry test");
 })
 
 app.get("/moviesApi", async (req, res) => {

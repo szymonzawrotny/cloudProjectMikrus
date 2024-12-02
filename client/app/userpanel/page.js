@@ -21,7 +21,7 @@ const Home = () => {
     }, [])
 
     return (
-        <span>zmieniłem sshkey i muszę coś zmienić dla nowego commita {session?.user?.email.name}</span>
+        <span>Witajj {session?.user?.email.name}</span>
     )
 }
 export default Home;

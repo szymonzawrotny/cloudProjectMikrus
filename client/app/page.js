@@ -18,7 +18,7 @@ const Home = () => {
   const handleReg = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/reg", {
+    const response = await fetch("https://szymonzawrotny.pl.cytr.us/reg", {
       method: "POST",
       body: JSON.stringify({
         regEmail,
@@ -61,7 +61,7 @@ const Home = () => {
     <div className="app">
       <div className="left">
         <div className="triangle"></div>
-        <header>Join ussss!</header>
+        <header>Join us!</header>
       </div>
       <div className="right">
         <div className="register">

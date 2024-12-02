@@ -56,6 +56,5 @@ export const options = {
     ],
     pages: {
         signIn: "/",  // Możesz dostosować stronę logowania
-        signOut: "/",
     }
 };

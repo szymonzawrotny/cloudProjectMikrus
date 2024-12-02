@@ -1,8 +1,8 @@
-version: '3.8'
+
 
 services:
   api:
-    image: grzybb23/libraryapp-api:latest
+    image: grzybb23/cloudproject-back:latest
     ports:
       - "5000:5000"
     environment:
@@ -13,7 +13,7 @@ services:
       - app-network
 
   frontend:
-    image: grzybb23/libraryapp-frontend:latest
+    image: grzybb23/cloudproject-front:latest
     ports:
       - "3000:3000"
     environment:

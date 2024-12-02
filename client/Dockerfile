@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Kopiowanie tylko plików zależności i instalowanie ich
 COPY package*.json ./
-RUN npm install --production  # Zainstaluj tylko zależności produkcyjne
+RUN npm install --production  
 
 # Kopiowanie reszty plików źródłowych
 COPY . .
@@ -22,7 +22,7 @@ WORKDIR /app
 COPY --from=build /app ./
 
 # Usuwanie zależności deweloperskich
-RUN npm prune --production  # Usuwanie zależności deweloperskich
+RUN npm prune --production 
 
 EXPOSE 3000
 

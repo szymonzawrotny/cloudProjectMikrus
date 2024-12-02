@@ -29,10 +29,10 @@ jobs:
         docker push grzybb23/cloudproject-back:latest
 
     - name: Deploy backend to Mikrus
-      uses: appleboy/ssh-action@v0.5.1
+      uses: appleboy/ssh-action@v0.1.12
       with:
-        host: <IP_SERWERA>
-        username: <UŻYTKOWNIK>
+        host: [2a01:4f9:6a:1cc8::234]
+        username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           docker pull grzybb23/cloudproject-back:latest
@@ -63,10 +63,10 @@ jobs:
         docker push grzybb23/cloudproject-front:latest
 
     - name: Deploy frontend to Mikrus
-      uses: appleboy/ssh-action@v0.5.1
+      uses: appleboy/ssh-action@v0.1.12
       with:
-        host: <IP_SERWERA>
-        username: <UŻYTKOWNIK>
+        host: [2a01:4f9:6a:1cc8::234]
+        username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           docker pull grzybb23/cloudproject-front:latest

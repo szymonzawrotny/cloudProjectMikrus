@@ -6,7 +6,7 @@ const DeleteForm = ({fetchUserData})=>{
     const handleDeleteAccount = async e => {
         e.preventDefault();
 
-        const response = await fetch("https://libraryappbackend-ggehede0hzaebnb0.canadacentral-01.azurewebsites.net/deleteaccount",{
+        const response = await fetch("https://szymonzawrotny.pl.cytr.us/deleteaccount",{
             method: "POST",
             body: JSON.stringify({
                 email: deleteAccount

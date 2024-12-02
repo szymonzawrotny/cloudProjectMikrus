@@ -8,7 +8,7 @@ const RegForm = ({fetchUserData})=>{
     const handleReg = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("https://libraryappbackend-ggehede0hzaebnb0.canadacentral-01.azurewebsites.net/reg", {
+        const response = await fetch("https://szymonzawrotny.pl.cytr.us/reg", {
             method: "POST",
             body: JSON.stringify({
                 regEmail,

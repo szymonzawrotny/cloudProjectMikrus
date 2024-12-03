@@ -37,10 +37,9 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           docker pull grzybb23/cloudproject-back:latest
-          docker ps -q -f name=cloudproject-back && docker stop cloudproject-back || true
+          docker stop cloudproject-back || true
           docker rm -f cloudproject-back || true
           docker run -d --name cloudproject-back -p 5000:5000 grzybb23/cloudproject-back:latest
-
 
   build-and-deploy-frontend:
     name: Build and Deploy Frontend
@@ -56,9 +55,17 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Add environment variables
+      run: |
+        echo "NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}" >> .env
+        echo "LINK=${{ secrets.LINK }}" >> .env
+
     - name: Build frontend Docker image
       run: |
-        docker build -t grzybb23/cloudproject-front:latest ./client
+        docker build --build-arg NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} \
+                     --build-arg LINK=${{ secrets.LINK }} \
+                     --build-arg NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }} \
+                     -t grzybb23/cloudproject-front:latest ./client
 
     - name: Push frontend Docker image to Docker Hub
       run: |
@@ -75,4 +82,8 @@ jobs:
           docker pull grzybb23/cloudproject-front:latest
           docker stop cloudproject-front || true
           docker rm cloudproject-front || true
-          docker run -d --name cloudproject-front -p 3000:3000 grzybb23/cloudproject-front:latest
+          docker run -d --name cloudproject-front -p 3000:3000 \
+            --env NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} \
+            --env NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }} \
+            --env LINK=${{ secrets.LINK }} \
+            grzybb23/cloudproject-front:latest

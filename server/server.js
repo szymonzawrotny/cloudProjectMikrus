@@ -135,6 +135,8 @@ app.post("/updatedata", async (req,res)=>{
             } break;
         }
 
+        res.status(200).json({message: "edytowano użytkownika"})
+
     } catch(err){
         console.log(err);
         res.status(500).json({message:"Błąd po stronie serwera"})

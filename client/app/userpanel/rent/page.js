@@ -17,23 +17,40 @@ const Home = () => {
 
     })
 
+    const [list, setList] = useState([
+        { tytul: "" },
+        { tytul: "" }, 
+        { tytul: "" }
+    ]);
+
+    const [tab,setTab] = useState(list);
+
     const fetchData = async ()=>{
         const response = await fetch("https://szymonzawrotny.pl.cytr.us/moviesApi")
         .then(response => response.json())
-        .then(data=>setList(data))
+        .then(data=>{
+            setList(data)
+            setTab(data)
+        })
     }
 
     useEffect(()=>{
         fetchData()
     },[])
 
-    const [list, setList] = useState([
-        { tytul: "siema" },
-        { tytul: "co" }, 
-        { tytul: "tam" }
-    ]);
+    const handleInput = (e)=>{
+        const value = e.target.value;
 
-    const elements = list.map((one, index) => {
+        const newTab = list.filter(one=>{
+            return one.nazwa.toLowerCase().includes(value)
+        })
+
+        console.log(newTab)
+
+        setTab(newTab)
+    }
+
+    const elements = tab.map((one, index) => {
         return (
             <li key={index}>
                 <p>
@@ -51,7 +68,7 @@ const Home = () => {
         <div className="rentMovie">
             <h2>Wypożycz film!</h2>
             <div className="search">
-                <input type="text" />
+                <input type="text" onChange={handleInput}/>
             </div>
             <div className="list">
                 <ul>

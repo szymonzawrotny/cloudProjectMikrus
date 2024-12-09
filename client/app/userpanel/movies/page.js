@@ -8,11 +8,11 @@ import MovieList from "@/components/MovieElement";
 const Home = () => {
     const router = useRouter();
     const [list, setList] = useState([
-        { tytul: "siema" },
-        { tytul: "co" },
-        { tytul: "tam" }
+        { tytul: "" },
+        { tytul: "" },
+        { tytul: "" }
     ]);
-    const [copyList, setCopyList] = useState([]);
+    const [tab, setTab] = useState(list);
 
     const { data: session } = useSession({
         required: true,
@@ -24,7 +24,10 @@ const Home = () => {
     const fetchData = async () => {
         const response = await fetch("https://szymonzawrotny.pl.cytr.us/moviesApi")
             .then(response => response.json())
-            .then(data => setList(data))
+            .then(data => {
+                setList(data)
+                setTab(data)
+            })
     }
 
     useEffect(() => {
@@ -32,7 +35,15 @@ const Home = () => {
     }, [])
 
     const handleSearch = (e) => {
-        let text = e.target.value;
+        const value = e.target.value;
+
+        const newTab = list.filter(one=>{
+            return one.nazwa.toLowerCase().includes(value)
+        })
+
+        console.log(newTab)
+
+        setTab(newTab)
     }
 
     const elements = list.map((one, index) => {

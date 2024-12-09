@@ -66,7 +66,7 @@ const Home = () => {
 
     return (
         <div className="rentMovie">
-            <h2>Wypożycz film!</h2>
+            <h2>Wypożycz filmy!</h2>
             <div className="search">
                 <input type="text" onChange={handleInput}/>
             </div>

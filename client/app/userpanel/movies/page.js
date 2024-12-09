@@ -46,7 +46,7 @@ const Home = () => {
         setTab(newTab)
     }
 
-    const elements = list.map((one, index) => {
+    const elements = tab.map((one, index) => {
         return (
            <MovieList key={index} one={one} index={index}/>
         )
@@ -55,8 +55,8 @@ const Home = () => {
     return (
         <div className="movieList">
             <h2>Lista filmów</h2>
-            <div className="search" onChange={handleSearch}>
-                <input type="text" />
+            <div className="search">
+                <input type="text" onChange={handleSearch}/>
             </div>
             <div className="list">
                 <ul>

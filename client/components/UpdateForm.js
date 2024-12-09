@@ -10,7 +10,6 @@ const UpdateForm = ({fetchUserData})=>{
 
     const handleUpdateAccount = async e => {
         e.preventDefault();
-        console.log("siema")
 
         const response = await fetch("https://szymonzawrotny.pl.cytr.us/updatedata",{
             method: "POST",

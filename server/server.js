@@ -110,25 +110,25 @@ app.post("/updatedata", async (req,res)=>{
     try{
         switch(data){
             case 'email':{
-                const result = await movies.updateOne(
+                const result = await users.updateOne(
                     {email:email},
                     {$set: {email:value}}
                 )
             } break;
             case 'name':{
-                const result = await movies.updateOne(
+                const result = await users.updateOne(
                     {email:email},
                     {$set: {name:value}}
                 )
             } break;
             case 'surname':{
-                const result = await movies.updateOne(
+                const result = await users.updateOne(
                     {email:email},
                     {$set: {surname:value}}
                 )
             } break;
             case 'password':{
-                const result = await movies.updateOne(
+                const result = await users.updateOne(
                     {email:email},
                     {$set: {password:value}}
                 )

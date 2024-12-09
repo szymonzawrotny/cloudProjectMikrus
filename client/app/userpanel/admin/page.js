@@ -91,7 +91,7 @@ const Home = () => {
                     <RegForm fetchUserData={fetchUserData}/>
                 </div>
                 <div className="update">
-                    <h2>Edytuj klienta</h2>
+                    <h2>Edytuj klientaa</h2>
                     <UpdateForm fetchUserData={fetchUserData}/>
                 </div>
                 <div className="delete">

@@ -61,7 +61,7 @@ const Home = () => {
     <div className="app">
       <div className="left">
         <div className="triangle"></div>
-        <header>Join uss!</header>
+        <header>Join us!</header>
       </div>
       <div className="right">
         <div className="register">

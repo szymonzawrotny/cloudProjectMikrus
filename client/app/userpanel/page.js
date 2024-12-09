@@ -21,7 +21,7 @@ const Home = () => {
     }, [])
 
     return (
-        <span>Witajj {session?.user?.email.name}</span>
+        <span>Witaj {session?.user?.email.name}</span>
     )
 }
 export default Home;

@@ -42,7 +42,7 @@ const Home = () => {
         const value = e.target.value;
 
         const newTab = list.filter(one=>{
-            return one.nazwa.toLowerCase().includes(value)
+            return one.tytul.toLowerCase().includes(value)
         })
 
         console.log(newTab)

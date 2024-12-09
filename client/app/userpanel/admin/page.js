@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 
 import RegForm from '@/components/RegForm';
 import DeleteForm from '@/components/DeleteForm';
+import UpdateForm from '@/components/UpdateForm';
 
 const Home = () => {
 
@@ -91,12 +92,7 @@ const Home = () => {
                 </div>
                 <div className="update">
                     <h2>Edytuj klienta</h2>
-                    <form action="">
-                        <input type="text" placeholder='email...' />
-                        <input type="text" placeholder='dane...' />
-                        <input type="text" placeholder='wartość...' />
-                        <input type="submit" value="edytuj" />
-                    </form>
+                    <UpdateForm fetchUserData={fetchUserData}/>
                 </div>
                 <div className="delete">
                     <h2>Usuń klienta</h2>

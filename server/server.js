@@ -92,13 +92,48 @@ app.post("/addmovie",async (req,res)=>{
     const {title, type,director, desc} = req.body;
 
     try{
-
         const result = await movies.insertOne({
             "tytul": title,
             "gatunek": type,
             "rezyser": director,
-            
         })
+
+    } catch(err){
+        console.log(err);
+        res.status(500).json({message:"Błąd po stronie serwera"})
+    }
+})
+
+app.post("/updatedata", async (req,res)=>{
+    const {email,data,value} = req.body;
+
+    try{
+        switch(data){
+            case 'email':{
+                const result = await movies.updateOne(
+                    {email:email},
+                    {$set: {email:value}}
+                )
+            } break;
+            case 'name':{
+                const result = await movies.updateOne(
+                    {email:email},
+                    {$set: {name:value}}
+                )
+            } break;
+            case 'surname':{
+                const result = await movies.updateOne(
+                    {email:email},
+                    {$set: {surname:value}}
+                )
+            } break;
+            case 'password':{
+                const result = await movies.updateOne(
+                    {email:email},
+                    {$set: {password:value}}
+                )
+            } break;
+        }
 
     } catch(err){
         console.log(err);

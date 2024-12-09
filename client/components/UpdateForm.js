@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from React;
+import { useState, useEffect } from "react";
 
 const UpdateForm = ({fetchUserData})=>{
 
@@ -11,7 +11,7 @@ const UpdateForm = ({fetchUserData})=>{
     const handleUpdateAccount = async e => {
         e.preventDefault();
 
-        const response = await fetch("https://szymonzawrotny.pl.cytr.us/deleteaccount",{
+        const response = await fetch("https://szymonzawrotny.pl.cytr.us/updatedata",{
             method: "POST",
             body: JSON.stringify({
                 email,

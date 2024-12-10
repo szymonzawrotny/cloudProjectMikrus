@@ -73,11 +73,11 @@ const Home = () => {
               value={regEmail}
               onChange={e => setRegEmail(e.target.value)} />
             <input
-              type="text"
+              type="password"
               placeholder="password..."
               value={regPassword}
               onChange={e => setRegPassword(e.target.value)} />
-            <input type="text" placeholder="password again..." />
+            <input type="password" placeholder="password again..." />
             <input type="submit" value="add" />
           </form>
         </div>

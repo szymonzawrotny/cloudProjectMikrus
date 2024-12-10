@@ -20,7 +20,6 @@ const RegForm = ({fetchUserData})=>{
         })
 
         if (response.ok) {
-            console.log("wysłano")
             alert("dodano użytkownika")
             setRegEmail("");
             setRegPassword("");

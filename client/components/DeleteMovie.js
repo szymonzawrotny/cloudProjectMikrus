@@ -7,7 +7,7 @@ const DeleteMovie = ({fetchMovieData})=>{
     const handleSend = async (e)=>{
         e.preventDefault();
 
-        const response = await fetch("http://localhost:5000/deletemovie",{
+        const response = await fetch("https://szymonzawrotny.pl.cytr.us/deletemovie",{
             method: "POST",
             body: JSON.stringify({
                 name,

@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
     })
 
     const logout = ()=>{
-        signOut({ callbackUrl: "http://localhost:3000//" }).then((res) => {
+        signOut({ callbackUrl: "https://szymonzawrotny.pl/" }).then((res) => {
             console.log("Wylogowanie zakończone:", res);
         }).catch((error) => {
             console.error("Błąd podczas wylogowywania:", error);

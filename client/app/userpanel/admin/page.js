@@ -24,13 +24,13 @@ const Home = () => {
     const [movies, setMovies] = useState([]);
 
     const fetchUserData = async () => {
-        const response = await fetch("http://localhost:5000/usersApi")
+        const response = await fetch("https://szymonzawrotny.pl.cytr.us/usersApi")
             .then(response => response.json())
             .then(data => setUsers(data));
     }
 
     const fetchMovieData = async () => {
-        const response = await fetch("http://localhost:5000/moviesApi")
+        const response = await fetch("https://szymonzawrotny.pl.cytr.us/moviesApi")
             .then(response => response.json())
             .then(data => setMovies(data));
     }

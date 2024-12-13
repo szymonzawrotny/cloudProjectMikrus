@@ -50,7 +50,7 @@ const Home = () => {
 
     const addRent = async (movie)=>{
         
-        const response = await fetch("http://localhost:5000/addrent",{
+        const response = await fetch("https://szymonzawrotny.pl.cytr.us/addrent",{
             method: "POST",
             body: JSON.stringify({
                 id: session?.user?.email?.id,

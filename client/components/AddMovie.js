@@ -10,7 +10,7 @@ const AddMovie = ({fetchMovieData})=>{
     const handleSend = async (e)=>{
         e.preventDefault();
 
-        const response = await fetch("http://localhost:5000/addmovie",{
+        const response = await fetch("https://szymonzawrotny.pl.cytr.us/addmovie",{
             method: "POST",
             body: JSON.stringify({
                 name,

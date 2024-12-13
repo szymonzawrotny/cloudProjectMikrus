@@ -22,7 +22,7 @@ const Home = () => {
     })
 
     const fetchData = async () => {
-        const response = await fetch("https://szymonzawrotny.pl.cytr.us/moviesApi")
+        const response = await fetch("http://localhost:5000/moviesApi")
             .then(response => response.json())
             .then(data => {
                 setList(data)
@@ -40,8 +40,6 @@ const Home = () => {
         const newTab = list.filter(one=>{
             return one.tytul.toLowerCase().includes(value)
         })
-
-        console.log(newTab)
 
         setTab(newTab)
     }

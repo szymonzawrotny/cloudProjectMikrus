@@ -26,7 +26,7 @@ const Home = () => {
     const [tab,setTab] = useState(list);
 
     const fetchData = async ()=>{
-        const response = await fetch("https://szymonzawrotny.pl.cytr.us/moviesApi")
+        const response = await fetch("http://localhost:5000/moviesApi")
         .then(response => response.json())
         .then(data=>{
             setList(data)
@@ -45,9 +45,37 @@ const Home = () => {
             return one.tytul.toLowerCase().includes(value)
         })
 
-        console.log(newTab)
-
         setTab(newTab)
+    }
+
+    const addRent = async (movie)=>{
+        
+        const response = await fetch("http://localhost:5000/addrent",{
+            method: "POST",
+            body: JSON.stringify({
+                id: session?.user?.email?.id,
+                email: session?.user?.email?.email,
+                movie
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        if(!response.ok){
+            console.log("coś poszło nie tak")
+        } else {
+            const data = await response.json();
+            if(data.answer == "limit"){
+                alert("zbyt duża liczba wypożyczeń")
+            } else if(data.answer == "already have"){
+                alert("już masz taki film!")
+            } else {
+                alert("dodano wypożyczenie")
+            }
+        }
+
+        
     }
 
     const elements = tab.map((one, index) => {
@@ -57,7 +85,7 @@ const Home = () => {
                     {index +1}.
                     {one.tytul}
                 </p>
-                <div className="show">
+                <div className="show" onClick={()=>addRent(one)}>
                     <CiCirclePlus/>
                 </div>
             </li>

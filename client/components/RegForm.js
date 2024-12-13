@@ -8,7 +8,7 @@ const RegForm = ({fetchUserData})=>{
     const handleReg = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("https://szymonzawrotny.pl.cytr.us/reg", {
+        const response = await fetch("http://localhost:5000/reg", {
             method: "POST",
             body: JSON.stringify({
                 regEmail,

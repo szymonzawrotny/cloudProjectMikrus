@@ -39,6 +39,7 @@ export const options = {
 
                     return {
                         email: {
+                            id: user._id,
                             email: user.email,
                             name: user.name,
                             surname: user.surname

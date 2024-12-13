@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
     })
 
     const logout = ()=>{
-        signOut({ callbackUrl: "https://szymonzawrotny.pl/" }).then((res) => {
+        signOut({ callbackUrl: "http://localhost:3000//" }).then((res) => {
             console.log("Wylogowanie zakończone:", res);
         }).catch((error) => {
             console.error("Błąd podczas wylogowywania:", error);
@@ -41,26 +41,26 @@ export default function RootLayout({ children }) {
                 <Link href="/userpanel/movies">
                     <div className="option">
                         <MdLocalMovies size={28} />
-                        movies
+                        Filmy
                     </div>
                 </Link>
                 <Link href="/userpanel/rentals">
                     <div className="option">
                         <MdMovieEdit size={28} />
-                        yours rentals
+                        Twoje wypożyczenia
                     </div>
                 </Link>
                 <Link href="/userpanel/rent">
                     <div className="option">
                         <MdAddShoppingCart size={28} />
-                        rent
+                        Wypożycz!
                     </div>
                 </Link>
                 { 
                     session?.user?.email.email === "szymonzawrotny@gmail.com" && <Link href="/userpanel/admin">
                         <div className="option">
                             <RiAdminLine size={28} />
-                            adminpanel
+                            Panel administratora
                         </div>
                      </Link>
                 }

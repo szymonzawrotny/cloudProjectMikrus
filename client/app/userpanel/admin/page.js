@@ -6,6 +6,8 @@ import { useSession } from 'next-auth/react';
 import RegForm from '@/components/RegForm';
 import DeleteForm from '@/components/DeleteForm';
 import UpdateForm from '@/components/UpdateForm';
+import AddMovie from '@/components/AddMovie';
+import DeleteMovie from '@/components/DeleteMovie';
 
 const Home = () => {
 
@@ -22,13 +24,13 @@ const Home = () => {
     const [movies, setMovies] = useState([]);
 
     const fetchUserData = async () => {
-        const response = await fetch("https://szymonzawrotny.pl.cytr.us/usersApi")
+        const response = await fetch("http://localhost:5000/usersApi")
             .then(response => response.json())
             .then(data => setUsers(data));
     }
 
     const fetchMovieData = async () => {
-        const response = await fetch("https://szymonzawrotny.pl.cytr.us/moviesApi")
+        const response = await fetch("http://localhost:5000/moviesApi")
             .then(response => response.json())
             .then(data => setMovies(data));
     }
@@ -55,13 +57,7 @@ const Home = () => {
             <div className="manageMovie">
                 <div className="add">
                     <h2>Dodaj film</h2>
-                    <form action="">
-                        <input type="text" placeholder='nazwa filmu...' />
-                        <input type="text" placeholder='gatunek...' />
-                        <input type="text" placeholder='reżyser...' />
-                        <input type="text" placeholder='opis...' />
-                        <input type="submit" value="dodaj" />
-                    </form>
+                    <AddMovie fetchMovieData={fetchMovieData}/>
                 </div>
                 <div className="update">
                     <h2>Edytuj film</h2>
@@ -74,10 +70,7 @@ const Home = () => {
                 </div>
                 <div className="delete">
                     <h2>Usuń film</h2>
-                    <form action="">
-                        <input type="text" placeholder='nazwa filmu...' />
-                        <input type="submit" value="usuń" />
-                    </form>
+                    <DeleteMovie fetchMovieData={fetchMovieData}/>
                 </div>
                 <div className="userList">
                     <ul>

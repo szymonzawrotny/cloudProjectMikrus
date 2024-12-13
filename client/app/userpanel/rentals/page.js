@@ -18,7 +18,7 @@ const Home = () => {
     })
 
     const fetchData = async () => {
-        const response = await fetch("https://szymonzawrotny.pl.cytr.us/rentsApi")
+        const response = await fetch("http://localhost:5000/rentsApi")
             .then(response => response.json())
             .then(data => setList(data))
     }
